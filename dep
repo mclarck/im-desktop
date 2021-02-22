@@ -6,7 +6,7 @@ yarn add --dev \
     @types/i18n-js @types/leaflet @types/react-leaflet @types/leaflet-geosearch @types/lodash \
     @apollo/client graphql mathjs  howler \
     @types/graphql @types/mathjs @types/howler \
-    react-icons react-hook-form node-sass@^4.* \
-    @types/react-icons @types/node-sass@^4.* \
+    react-icons react-hook-form sass node-sass@^4 \
+    @types/react-icons @types/sass @types/node-sass@^4 \
     socket.io-client serialize-javascript knex sqlite3 \
     @types/socket.io-client @types/knex @types/sqlite3

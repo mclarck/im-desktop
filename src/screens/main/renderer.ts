@@ -27,7 +27,8 @@
  */
 
 import "./index";
-import "./index.css";
+import style from "./index.scss";
+console.log(style)
 
 console.log(
   '👋 This message is being logged by "renderer.js", included via webpack'
