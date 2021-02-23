@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-module.exports = function App() {
+export const App = () => {
   useEffect(() => {
     console.log("from react");
   }, []);

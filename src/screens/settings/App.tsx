@@ -7,7 +7,7 @@ module.exports = function App() {
 
   return (
     <div id="layout">
-      <div id="content">let's go</div>
+      <div id="content">Main Window</div>
     </div>
   );
 };

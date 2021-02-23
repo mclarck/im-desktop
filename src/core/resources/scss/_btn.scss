@@ -1,0 +1,43 @@
+.btn {
+  border: none;
+  background: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  &:active {
+    outline: none;
+  }
+  &-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    font-size: 18px;
+    color: lighten(#222, 20);
+    &:hover {
+      color: lighten(#222, 10);
+    }
+    &.sm {
+      width: auto;
+      height: 35px;
+      font-size: 14px;
+      padding: 0 20px;
+    }
+    > .icon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      font-size: 18px;
+    }
+  }
+}
