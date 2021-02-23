@@ -2,7 +2,6 @@ import React, { createContext } from "react";
 import { ApolloClient, HttpLink } from "@apollo/client";
 import cache from "../model/cache";
 import { RestProvider, initRest } from "./rest";
-import { SocketIOProvider } from "./io";
 import { initIO } from "./io";
 import { GqlProvider } from "./graphql";
 import fetch from "cross-fetch";
@@ -28,7 +27,9 @@ export function AppProvider(props: any) {
     <AppContext.Provider value={initContext}>
       <GqlProvider>
         <RestProvider>
-          <SocketIOProvider>{props.children}</SocketIOProvider>
+          {/* <SocketIOProvider> */}
+          {props.children}
+          {/* </SocketIOProvider> */}
         </RestProvider>
       </GqlProvider>
     </AppContext.Provider>

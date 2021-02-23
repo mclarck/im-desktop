@@ -37,7 +37,7 @@ export default class MenuManager {
         label: "File",
         submenu: [
           {
-            label: "New stock",
+            label: "New Stock",
             click: async () => {
               this.screenManager.create("NEWSTOCK", {
                 title: "Create Stock",
