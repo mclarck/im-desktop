@@ -1,0 +1,8 @@
+.mainLayout {
+  -webkit-box-sizing: boder-box;
+          box-sizing: boder-box;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+/*# sourceMappingURL=style.module.css.map */

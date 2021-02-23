@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./style.module.scss";
+import style from "./style.module.css";
 import useMainLayout from "./useMainLayout";
 
 export default function MainLayout(props: any) {

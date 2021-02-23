@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './style.module.scss'
+import style from './style.module.css'
 import useStatusBar from './useStatusBar'
 
 export default function StatusBar(props:any){

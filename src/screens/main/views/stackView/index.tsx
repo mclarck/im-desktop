@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Chats, Home, Stocks } from "../../screens";
+import Chats from "../chats";
+import Home from "../home";
+import Stocks from "../stocks";
 import useStackView from "./useStackView";
 
 export default function StackView(props: any) {

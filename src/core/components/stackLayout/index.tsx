@@ -1,8 +1,8 @@
-import React, { Children } from "react";
+import React from "react";
 import MainMenu from "../mainMenu";
 import StatusBar from "../statusBar";
 import TopBar from "../topBar";
-import style from "./style.module.scss";
+import style from "./style.module.css";
 import useStackLayout from "./useStackLayout";
 
 export default function StackLayout(props: any) {

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { MainLayout, StackLayout, StackView } from "../../core/components";
 
 export const App = () => {
   useEffect(() => {
@@ -6,8 +7,10 @@ export const App = () => {
   }, []);
 
   return (
-    <div id="layout">
-      <div id="content">Main Window</div>
-    </div>
+    <MainLayout>
+      <StackLayout>
+        <StackView />
+      </StackLayout>
+    </MainLayout>
   );
 };

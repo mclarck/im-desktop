@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "../link";
-import style from "./style.module.scss";
+import style from "./style.module.css";
 import useTopBar from "./useTopBar";
 
 export default function TopBar(props: any) {
