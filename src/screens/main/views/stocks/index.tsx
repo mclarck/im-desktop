@@ -6,7 +6,7 @@ import Article from "../../../../core/components/article/Article";
 import Stock from "../stock";
 
 export default function Stocks(props: any) {
-  const { app, filter, loading } = useStocks(props);
+  const { getDesc, app, filter, loading } = useStocks(props);
   return (
     <div className={style.stocks}>
       <div className={style.content}>
@@ -15,6 +15,8 @@ export default function Stocks(props: any) {
             <Article
               key={idx}
               data={o.node}
+              title={o.node?.product?.container}
+              descriptions={getDesc(o.node)}
               onClick={() =>
                 app.setPreview({
                   name: "sideRight",

@@ -1,5 +1,5 @@
-import React from "react"; 
-import { MdMail, MdPhone } from "react-icons/md";
+import React from "react";
+import { MdMail, MdPhone, MdLocationOn } from "react-icons/md";
 import { t } from "../../../locale";
 import Field from "../field";
 
@@ -17,8 +17,8 @@ export default function ProviderField({
 }) {
   return (
     <div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Provider Name")} error={error?.name} iconRight={<MdMail />}>
+      <div className={`${style.field}`}>
+        <Field label={t("Provider Name")} error={error?.name}>
           <input
             type="text"
             defaultValue={defaultValue?.name}
@@ -26,7 +26,9 @@ export default function ProviderField({
             ref={register}
           />
         </Field>
-        <Field label={t("Alias")} error={error?.alias} iconRight={<MdPhone />}>
+      </div>
+      <div className={`${style.field} ${style.grid} ${style["grid-2"]}`}>
+        <Field label={t("Alias")} error={error?.alias}>
           <input
             type="text"
             defaultValue={defaultValue?.alias}
@@ -34,9 +36,7 @@ export default function ProviderField({
             ref={register}
           />
         </Field>
-      </div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Phone")} error={error?.phone} iconRight={<MdMail />}>
+        <Field label={t("Phone")} error={error?.phone} iconRight={<MdPhone />}>
           <input
             type="text"
             defaultValue={defaultValue?.phone}
@@ -44,7 +44,13 @@ export default function ProviderField({
             ref={register}
           />
         </Field>
-        <Field label={t("Address")} error={error?.address} iconRight={<MdPhone />}>
+      </div>
+      <div className={`${style.field}`}>
+        <Field
+          label={t("Address")}
+          error={error?.address}
+          iconRight={<MdLocationOn />}
+        >
           <input
             type="text"
             defaultValue={defaultValue?.address}

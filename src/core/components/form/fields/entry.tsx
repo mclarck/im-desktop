@@ -17,8 +17,8 @@ export default function EntryField({
 }) {
   return (
     <div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Branch")} error={error?.branch} iconRight={<MdMail />}>
+      <div className={`${style.field} ${style.grid} ${style["grid-2"]}`}>
+        <Field label={t("Branch")} error={error?.branch}>
           <input
             type="text"
             defaultValue={defaultValue?.branch}
@@ -26,7 +26,7 @@ export default function EntryField({
             ref={register}
           />
         </Field>
-        <Field label={t("Receipt")} error={error?.receipt} iconRight={<MdPhone />}>
+        <Field label={t("Receipt")} error={error?.receipt}>
           <input
             type="text"
             defaultValue={defaultValue?.receipt}
@@ -35,8 +35,8 @@ export default function EntryField({
           />
         </Field>
       </div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Sent At")} error={error?.sent} iconRight={<MdMail />}>
+      <div className={`${style.field} ${style.grid} ${style["grid-2"]}`}>
+        <Field label={t("Sent At")} error={error?.sent}>
           <input
             type="text"
             defaultValue={defaultValue?.sent}
@@ -44,7 +44,7 @@ export default function EntryField({
             ref={register}
           />
         </Field>
-        <Field label={t("Stocked At")} error={error?.stocked} iconRight={<MdPhone />}>
+        <Field label={t("Stocked At")} error={error?.stocked}>
           <input
             type="text"
             defaultValue={defaultValue?.stocked}

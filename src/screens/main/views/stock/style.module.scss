@@ -3,6 +3,24 @@
   height: 100%;
   overflow: hidden;
 
+  .grid {
+    display: grid;
+    align-items: center;
+    grid-gap: 10px;
+
+    &-2 {
+      grid-template-columns: repeat(1, 1fr 1fr);
+    }
+
+    &-3 {
+      grid-template-columns: repeat(1, 1fr 1fr 1fr);
+    }
+
+    &-4 {
+      grid-template-columns: repeat(1, 1fr 1fr 1fr 1fr);
+    }
+  }
+
   .form {
     height: 100%;
     display: grid;

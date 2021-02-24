@@ -17,7 +17,7 @@ export default function ContactField({
 }) {
   return (
     <div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
+      <div className={`${style.field} ${style.grid} ${style["grid-2"]}`}>
         <Field label={t("Email")} error={error?.email} iconRight={<MdMail />}>
           <input
             type="text"

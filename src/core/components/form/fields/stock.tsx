@@ -17,8 +17,8 @@ export default function StockField({
 }) {
   return (
     <div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Quantity")} error={error?.quantity} iconRight={<MdMail />}>
+      <div className={`${style.field} ${style.grid} ${style["grid-2"]}`}>
+        <Field label={t("Quantity")} error={error?.quantity}>
           <input
             type="text"
             defaultValue={defaultValue?.quantity}
@@ -26,7 +26,7 @@ export default function StockField({
             ref={register}
           />
         </Field>
-        <Field label={t("Quantity Av")} error={error?.quantityAv} iconRight={<MdPhone />}>
+        <Field label={t("Quantity Av")} error={error?.quantityAv}>
           <input
             type="text"
             defaultValue={defaultValue?.quantityAv}
@@ -35,8 +35,8 @@ export default function StockField({
           />
         </Field>
       </div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Curracy")} error={error?.devise} iconRight={<MdMail />}>
+      <div className={`${style.field} ${style.grid} ${style["grid-2"]}`}>
+        <Field label={t("Curracy")} error={error?.devise}>
           <input
             type="text"
             defaultValue={defaultValue?.devise}
@@ -44,7 +44,7 @@ export default function StockField({
             ref={register}
           />
         </Field>
-        <Field label={t("Price")} error={error?.price} iconRight={<MdPhone />}>
+        <Field label={t("Price")} error={error?.price}>
           <input
             type="text"
             defaultValue={defaultValue?.price}
@@ -53,8 +53,8 @@ export default function StockField({
           />
         </Field>
       </div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Shipping Cost")} error={error?.shipping} iconRight={<MdMail />}>
+      <div className={`${style.field} ${style.grid} ${style["grid-2"]}`}>
+        <Field label={t("Shipping Cost")} error={error?.shipping}>
           <input
             type="text"
             defaultValue={defaultValue?.shipping}
@@ -62,7 +62,7 @@ export default function StockField({
             ref={register}
           />
         </Field>
-        <Field label={t("Shipping Additional")} error={error?.shippingAdditional} iconRight={<MdPhone />}>
+        <Field label={t("Shipping Additional")} error={error?.shippingAdditional}>
           <input
             type="text"
             defaultValue={defaultValue?.shippingAdditional}
@@ -71,8 +71,8 @@ export default function StockField({
           />
         </Field>
       </div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Old Price")} error={error?.oldPrice} iconRight={<MdMail />}>
+      <div className={`${style.field} ${style.grid} ${style["grid-2"]}`}>
+        <Field label={t("Old Price")} error={error?.oldPrice}>
           <input
             type="text"
             defaultValue={defaultValue?.oldPrice}
@@ -80,7 +80,7 @@ export default function StockField({
             ref={register}
           />
         </Field>
-        <Field label={t("Tax per unit")} error={error?.tax} iconRight={<MdPhone />}>
+        <Field label={t("Tax per unit")} error={error?.tax}>
           <input
             type="text"
             defaultValue={defaultValue?.tax}

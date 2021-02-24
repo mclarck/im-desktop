@@ -23,10 +23,22 @@ export default function Stock(props: any) {
           />
         </div>
         <div className={style.body}>
-          <StockField register={register} style={style} />
-          <ProductField register={register} style={style} />
-          <EntryField register={register} style={style} />
-          <ProviderField register={register} style={style} />
+          <ProductField
+            register={register}
+            style={style}
+            defaultValue={stock?.product}
+          />
+          <StockField register={register} style={style} defaultValue={stock} />
+          <EntryField
+            register={register}
+            style={style}
+            defaultValue={stock?.entry}
+          />
+          <ProviderField
+            register={register}
+            style={style}
+            defaultValue={stock?.entry?.provider}
+          />
         </div>
         <div className={style.footer}>
           <button type="submit" className="btn btn-success">

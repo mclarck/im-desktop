@@ -5,9 +5,11 @@ import { fileUrl } from "../../lib/ultils";
 export default function Article({
   onClick,
   notice,
+  title,
   descriptions,
   data,
 }: {
+  title?: string;
   data: any;
   descriptions?: any;
   notice?: any;
@@ -22,7 +24,9 @@ export default function Article({
           </div>
           <aside>
             <div className={style.infos}>
-              <div className={style.title}>{data?.product?.specie}</div>
+              <div className={style.title}>
+                {title || data?.product?.specie}
+              </div>
               <div className={style.description}>
                 <div>{data?.product?.mark}</div>
                 {descriptions ? (

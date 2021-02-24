@@ -35,7 +35,7 @@ export default function LocationField({
           />
         </Field>
       </div>
-      <div className={`${style.field} ${style["grid-3"]}`}>
+      <div className={`${style.field} ${style.grid} ${style["grid-3"]}`}>
         <Field label={t("Street Number")} error={error?.address?.number}>
           <input
             type="text"

@@ -15,7 +15,7 @@ export default function PinField({
 }) {
   return (
     <React.Fragment>
-      <div className={`${style.field} ${style["grid-2"]}`}>
+      <div className={`${style.field} ${style.grid} ${style["grid-2"]}`}>
         <Field label={t("PIN")} error={error?.pin} iconRight={<BsShieldLock />}>
           <input type="password" name="pin" ref={register} />
         </Field>

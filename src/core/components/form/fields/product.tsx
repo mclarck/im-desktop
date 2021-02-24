@@ -17,8 +17,8 @@ export default function ProductField({
 }) {
   return (
     <div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Specie")} error={error?.specie} iconRight={<MdMail />}>
+      <div className={`${style.field}`}>
+        <Field label={t("Specie")} error={error?.specie}>
           <input
             type="text"
             defaultValue={defaultValue?.specie}
@@ -26,7 +26,7 @@ export default function ProductField({
             ref={register}
           />
         </Field>
-        <Field label={t("Mark")} error={error?.mark} iconRight={<MdPhone />}>
+        <Field label={t("Mark")} error={error?.mark}>
           <input
             type="text"
             defaultValue={defaultValue?.mark}
@@ -35,8 +35,8 @@ export default function ProductField({
           />
         </Field>
       </div>
-      <div className={`${style.field} ${style["grid-2"]}`}>
-        <Field label={t("Variety")} error={error?.variety} iconRight={<MdMail />}>
+      <div className={`${style.field}`}>
+        <Field label={t("Variety")} error={error?.variety}>
           <input
             type="text"
             defaultValue={defaultValue?.variety}
@@ -44,7 +44,7 @@ export default function ProductField({
             ref={register}
           />
         </Field>
-        <Field label={t("Container")} error={error?.container} iconRight={<MdPhone />}>
+        <Field label={t("Container")} error={error?.container}>
           <input
             type="text"
             defaultValue={defaultValue?.container}
