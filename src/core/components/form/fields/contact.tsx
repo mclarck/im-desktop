@@ -1,5 +1,4 @@
-import React from "react";
-import { BsShieldLock } from "react-icons/bs";
+import React from "react"; 
 import { MdMail, MdPhone } from "react-icons/md";
 import { t } from "../../../locale";
 import Field from "../field";

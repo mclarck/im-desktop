@@ -1,5 +1,4 @@
-import React from "react";
-import { BsShieldLock } from "react-icons/bs";
+import React from "react"; 
 import { MdMail, MdPhone } from "react-icons/md";
 import { t } from "../../../locale";
 import Field from "../field";
@@ -23,7 +22,7 @@ export default function ProviderField({
           <input
             type="text"
             defaultValue={defaultValue?.name}
-            name="name"
+            name="provider.name"
             ref={register}
           />
         </Field>
@@ -31,7 +30,7 @@ export default function ProviderField({
           <input
             type="text"
             defaultValue={defaultValue?.alias}
-            name="alias"
+            name="provider.alias"
             ref={register}
           />
         </Field>
@@ -41,7 +40,7 @@ export default function ProviderField({
           <input
             type="text"
             defaultValue={defaultValue?.phone}
-            name="phone"
+            name="provider.phone"
             ref={register}
           />
         </Field>
@@ -49,7 +48,7 @@ export default function ProviderField({
           <input
             type="text"
             defaultValue={defaultValue?.address}
-            name="address"
+            name="provider.address"
             ref={register}
           />
         </Field>

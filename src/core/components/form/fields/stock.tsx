@@ -1,5 +1,4 @@
-import React from "react";
-import { BsShieldLock } from "react-icons/bs";
+import React from "react"; 
 import { MdMail, MdPhone } from "react-icons/md";
 import { t } from "../../../locale";
 import Field from "../field";
@@ -23,7 +22,7 @@ export default function StockField({
           <input
             type="text"
             defaultValue={defaultValue?.quantity}
-            name="quantity"
+            name="stock.quantity"
             ref={register}
           />
         </Field>
@@ -31,7 +30,7 @@ export default function StockField({
           <input
             type="text"
             defaultValue={defaultValue?.quantityAv}
-            name="quantityAv"
+            name="stock.quantityAv"
             ref={register}
           />
         </Field>
@@ -41,7 +40,7 @@ export default function StockField({
           <input
             type="text"
             defaultValue={defaultValue?.devise}
-            name="devise"
+            name="stock.devise"
             ref={register}
           />
         </Field>
@@ -49,7 +48,7 @@ export default function StockField({
           <input
             type="text"
             defaultValue={defaultValue?.price}
-            name="price"
+            name="stock.price"
             ref={register}
           />
         </Field>
@@ -59,7 +58,7 @@ export default function StockField({
           <input
             type="text"
             defaultValue={defaultValue?.shipping}
-            name="shipping"
+            name="stock.shipping"
             ref={register}
           />
         </Field>
@@ -67,7 +66,7 @@ export default function StockField({
           <input
             type="text"
             defaultValue={defaultValue?.shippingAdditional}
-            name="shippingAdditional"
+            name="stock.shippingAdditional"
             ref={register}
           />
         </Field>
@@ -77,7 +76,7 @@ export default function StockField({
           <input
             type="text"
             defaultValue={defaultValue?.oldPrice}
-            name="oldPrice"
+            name="stock.oldPrice"
             ref={register}
           />
         </Field>
@@ -85,7 +84,7 @@ export default function StockField({
           <input
             type="text"
             defaultValue={defaultValue?.tax}
-            name="tax"
+            name="stock.tax"
             ref={register}
           />
         </Field>

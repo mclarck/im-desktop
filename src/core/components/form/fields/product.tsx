@@ -1,5 +1,4 @@
-import React from "react";
-import { BsShieldLock } from "react-icons/bs";
+import React from "react"; 
 import { MdMail, MdPhone } from "react-icons/md";
 import { t } from "../../../locale";
 import Field from "../field";
@@ -23,7 +22,7 @@ export default function ProductField({
           <input
             type="text"
             defaultValue={defaultValue?.specie}
-            name="specie"
+            name="product.specie"
             ref={register}
           />
         </Field>
@@ -31,7 +30,7 @@ export default function ProductField({
           <input
             type="text"
             defaultValue={defaultValue?.mark}
-            name="mark"
+            name="product.mark"
             ref={register}
           />
         </Field>
@@ -41,7 +40,7 @@ export default function ProductField({
           <input
             type="text"
             defaultValue={defaultValue?.variety}
-            name="variety"
+            name="product.variety"
             ref={register}
           />
         </Field>
@@ -49,7 +48,7 @@ export default function ProductField({
           <input
             type="text"
             defaultValue={defaultValue?.container}
-            name="container"
+            name="product.container"
             ref={register}
           />
         </Field>

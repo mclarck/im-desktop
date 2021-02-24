@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 export type ImagePickerProps = {
   preview?: any;
+  defaultValue?: any;
   maxSize?: number;
   accept?: string;
   allow?: Array<string>;
@@ -17,7 +18,7 @@ const ImagePicker = (props: ImagePickerProps) => {
   const input: any = useRef();
 
   useEffect(() => {
-    setpreview((current:any)=>current = props.preview);
+    setpreview((current: any) => (current = props.preview));
   }, [props.preview]);
 
   const handleChange = (e: any) => {
