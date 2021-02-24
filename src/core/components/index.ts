@@ -5,6 +5,7 @@ import SideLayout from "./sideLayout/index";
 import StackLayout from "./stackLayout/index";
 import StackView from "../../screens/main/views/stackView/index";
 import StatusBar from "./statusBar/index";
+import Loader from './loader/index';
 export {
   TopBar,
   Link,
@@ -13,4 +14,5 @@ export {
   StackLayout,
   StackView,
   StatusBar,
+  Loader
 };

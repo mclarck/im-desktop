@@ -1,12 +1,11 @@
 import React from "react";
 import MainMenu from "../mainMenu";
 import StatusBar from "../statusBar";
-import TopBar from "../topBar";
-import style from "./style.module.css";
+import style from "./style.module.scss";
 import useStackLayout from "./useStackLayout";
 
 export default function StackLayout(props: any) {
-  const {} = useStackLayout(props);
+  const { app } = useStackLayout(props);
   return (
     <div id={style.stackLayout}>
       <div id={style.wrapr}>
@@ -14,12 +13,11 @@ export default function StackLayout(props: any) {
           <MainMenu />
         </div>
         <div id={style.container}>
-          <div id={style.topBar}>
-            <TopBar />
-          </div>
           <div id={style.content}>{props.children}</div>
         </div>
-        <div id={style.sideRight}></div>
+        {app?.preview?.sideRight && (
+          <div id={style.sideRight}>{app?.preview?.sideRight}</div>
+        )}
       </div>
       <div id={style.footer}>
         <StatusBar />

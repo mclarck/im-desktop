@@ -7,20 +7,20 @@ export default {
     },
     company: 'kioskito',
     graphql: {
-        uri: 'http://192.162.0.227:8000/api/graphql',
+        uri: 'http://192.168.0.227:8000/api/graphql',
         headers: {
             'IM-COMPANY': 'kioskito'
         }
     },
     rest: {
-        uri: 'http://192.162.0.227:8000/api',
+        uri: 'http://192.168.0.227:8000/api',
         headers: {
             Accept: "application/json",
             'IM-COMPANY': 'kioskito'
         }
     },
     io: {
-        uri: 'http://192.162.0.227:8080',
+        uri: 'http://192.168.0.227:8080',
         options: { transports: ["polling"] }
     }
 }

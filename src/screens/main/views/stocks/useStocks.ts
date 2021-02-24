@@ -1,9 +1,10 @@
 import _ from "lodash";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { useLazyQuery } from "@apollo/client";
 import useCartModel, { GET_CART_ITEMS } from "../../../../core/model/cart";
 import { GET_FULL_STOCKS } from "../../../../core/model/stock/queries";
+import { AppContext } from "../../../../core/services/context";
 
 export default function useStocks(props: any) {
   const company = "kioskito";
@@ -17,11 +18,16 @@ export default function useStocks(props: any) {
   });
   const [getCart] = useLazyQuery(GET_CART_ITEMS);
   const stocks = data?.stocks?.edges;
+  const app = useContext(AppContext);
 
   useEffect(() => {
     fetch();
     getCart();
   }, [fetch, getCart, url]);
+
+  useEffect(() => {
+    app.setLoading(loading);
+  }, [loading]);
 
   const filter = () =>
     _.filter(stocks, (o) => {
@@ -48,8 +54,9 @@ export default function useStocks(props: any) {
     cart.add(order);
     fetch();
   };
-  if (error) console.log(error.message);
+  if (error) console.log(error.message);  
   return {
+    app,
     onCreate,
     selected,
     onSelect,
@@ -59,7 +66,7 @@ export default function useStocks(props: any) {
     showForm,
     closeForm,
     stocks,
-    loading,
+    loading: app.loading,
     key,
     filter,
     onSearch,

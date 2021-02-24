@@ -1,16 +1,31 @@
 import React from "react";
-import style from "./style.module.css";
+import style from "./style.module.scss";
 import useStocks from "./useStocks";
+import Loader from "../../../../core/components/loader";
+import Article from "../../../../core/components/article/Article";
+import Stock from "../stock";
 
 export default function Stocks(props: any) {
-  const { filter, onSelect } = useStocks(props);
+  const { app, filter, loading } = useStocks(props);
   return (
     <div className={style.stocks}>
-      <div className={style.items}>
-        {filter().map((o: any, idx: number) => (
-          <div>{o.node.id}</div>
-        ))}
+      <div className={style.content}>
+        <div className={style.items}>
+          {filter().map((o: any, idx: number) => (
+            <Article
+              key={idx}
+              data={o.node}
+              onClick={() =>
+                app.setPreview({
+                  name: "sideRight",
+                  component: <Stock stock={o.node} />,
+                })
+              }
+            />
+          ))}
+        </div>
       </div>
+      {loading && <Loader />}
     </div>
   );
 }
