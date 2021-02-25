@@ -1,34 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import ImagePicker from "../../imagePicker/ImagePicker";
 import { fileUrl } from "../../../lib/ultils";
 
 export default function FileField({
   style,
   register,
-  setValue,
-  error,
   defaultValue,
+  onLoadFile,
 }: {
   style: any;
   register: any;
-  setValue: Function;
   error?: any;
   defaultValue?: any;
   onBlur?: () => void;
+  onLoadFile?: (f: any) => void;
 }) {
   return (
     <div>
       <div className={`${style.field}}`}>
         <div className={style.picture}>
           <ImagePicker
-            onChange={(val: any) => setValue({ image: val })}
-            preview={fileUrl(defaultValue?.image)}
-          />
-          <input
-            type="hidden"
-            name="file.id"
-            ref={register}
-            defaultValue={defaultValue?.file?.id}
+            onChange={(f) => onLoadFile(f)}
+            preview={defaultValue && fileUrl(defaultValue?.image)}
           />
         </div>
       </div>

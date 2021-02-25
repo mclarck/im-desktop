@@ -8,16 +8,14 @@ import ProviderField from "../../../../core/components/form/fields/provider";
 import StockField from "../../../../core/components/form/fields/stock";
 
 export default function Stock(props: any) {
-  const { register, setValue, handleSubmit, submit, stock, image } = useStock(
-    props
-  );
+  const { register, onLoadFile, handleSubmit, submit, stock, image } = useStock(props);
   return (
     <div className={style.stock}>
       <form className={style.form} onSubmit={handleSubmit(submit)}>
         <div className={style.header}>
           <FileField
+            onLoadFile={onLoadFile}
             register={register}
-            setValue={setValue}
             style={style}
             defaultValue={{ image, file: stock?.file }}
           />

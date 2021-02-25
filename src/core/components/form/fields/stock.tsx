@@ -23,7 +23,7 @@ export default function StockField({
             type="text"
             defaultValue={defaultValue?.quantity}
             name="stock.quantity"
-            ref={register}
+            ref={register({valueAsNumber:true})}
           />
         </Field>
         <Field label={t("Quantity Av")} error={error?.quantityAv}>
@@ -31,7 +31,7 @@ export default function StockField({
             type="text"
             defaultValue={defaultValue?.quantityAv}
             name="stock.quantityAv"
-            ref={register}
+            ref={register({valueAsNumber:true})}
           />
         </Field>
       </div>
@@ -49,7 +49,7 @@ export default function StockField({
             type="text"
             defaultValue={defaultValue?.price}
             name="stock.price"
-            ref={register}
+            ref={register({valueAsNumber:true})}
           />
         </Field>
       </div>
@@ -59,7 +59,7 @@ export default function StockField({
             type="text"
             defaultValue={defaultValue?.shipping}
             name="stock.shipping"
-            ref={register}
+            ref={register({valueAsNumber:true})}
           />
         </Field>
         <Field label={t("Shipping Additional")} error={error?.shippingAdditional}>
@@ -67,7 +67,7 @@ export default function StockField({
             type="text"
             defaultValue={defaultValue?.shippingAdditional}
             name="stock.shippingAdditional"
-            ref={register}
+            ref={register({valueAsNumber:true})}
           />
         </Field>
       </div>
@@ -77,7 +77,7 @@ export default function StockField({
             type="text"
             defaultValue={defaultValue?.oldPrice}
             name="stock.oldPrice"
-            ref={register}
+            ref={register({valueAsNumber:true})}
           />
         </Field>
         <Field label={t("Tax per unit")} error={error?.tax}>
@@ -85,7 +85,7 @@ export default function StockField({
             type="text"
             defaultValue={defaultValue?.tax}
             name="stock.tax"
-            ref={register}
+            ref={register({valueAsNumber:true})}
           />
         </Field>
       </div>

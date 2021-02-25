@@ -14,13 +14,14 @@
       width: 48px;
       height: 100%;
       overflow: hidden;
-      border-right: 1px solid black;
+      // border-right: 1px solid black;
     }
     #container {
       flex: 1;
       overflow: hidden;
       #topBar {
-        border-bottom: 1px solid black;
+        // border-bottom: 1px solid black;
+        box-sizing: boder-box;
       }
       #content {
         overflow: hidden;
@@ -28,11 +29,13 @@
     }
     #sideRight {
       min-width: 22px;
-      border-left: 1px solid black;
+      // border-left: 1px solid black;
+      box-sizing: boder-box;
     }
   }
   #footer {
     font-size: 10px;
-    border-top: 1px solid black;
+    // border-top: 1px solid black;
+    box-sizing: boder-box;
   }
 }

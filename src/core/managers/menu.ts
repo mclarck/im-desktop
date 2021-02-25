@@ -41,8 +41,8 @@ export default class MenuManager {
             click: async () => {
               this.screenManager.create("NEWSTOCK", {
                 title: "Create Stock",
-                width: 720,
-                height: 320,
+                width: 420,
+                height: 580,
               });
             },
           },

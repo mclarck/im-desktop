@@ -7,14 +7,17 @@
 
   .content {
     padding: 20px;
-    overflow: auto;
+    overflow: hidden;
+    height: 100%;
   }
 
   .items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 140px));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 140px));
     grid-gap: 10px;
     align-items: stretch;
-    grid-auto-flow: dense;
+    justify-content: center;
+    height: 100%;
+    overflow: auto;
   }
 }

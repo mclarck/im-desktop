@@ -18,13 +18,17 @@ const ImagePicker = (props: ImagePickerProps) => {
   const input: any = useRef();
 
   useEffect(() => {
-    setpreview((current: any) => (current = props.preview));
+    if (props.preview) {
+      setpreview((preview:any) => (preview = props.preview));
+      console.log(preview);
+    }
   }, [props.preview]);
 
   const handleChange = (e: any) => {
     const files = e.target.files;
     if (files) {
       if (files[0]) {
+        console.log("file changed");
         const reader = new FileReader();
         const allowed: any = props.allow
           ? props.allow
@@ -46,13 +50,15 @@ const ImagePicker = (props: ImagePickerProps) => {
           const b64 = btoa(e.target.result);
           const prefix = `data:image/${fileExtension};base64,`;
           const preview = `${prefix}${b64}`;
-          setpreview(preview);
+          setpreview((p:any) => (p = preview));
           props.onChange &&
             props.onChange({
-              ext: fileExtension,
-              mime: prefix,
-              content: b64,
-              size: fileSize,
+              file: {
+                ext: fileExtension,
+                mime: prefix,
+                content: b64,
+                size: fileSize,
+              },
             });
         };
         reader.readAsBinaryString(files[0]);

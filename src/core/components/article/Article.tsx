@@ -21,7 +21,7 @@ export default function Article({
         <section>
           <div className={style.thumb}>
             <img src={fileUrl(data.file)} />
-          </div>
+          </div><br/>
           <aside>
             <div className={style.infos}>
               <div className={style.title}>
