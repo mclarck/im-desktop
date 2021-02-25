@@ -12,9 +12,7 @@ export default function StackLayout(props: any) {
         <div id={style.sideMenu}>
           <MainMenu />
         </div>
-        <div id={style.container}>
-          <div id={style.content}>{props.children}</div>
-        </div>
+        <div id={style.container}>{props.children}</div>
         {app?.preview?.sideRight && (
           <div id={style.sideRight}>{app?.preview?.sideRight}</div>
         )}

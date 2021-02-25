@@ -2,7 +2,7 @@ import React from "react";
 import style from "./style.module.css";
 import useMainMenu from "./useMainMenu";
 import { FaDolly } from "react-icons/fa";
-import { RiShoppingCart2Fill } from "react-icons/ri";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BiSupport } from "react-icons/bi";
 import Link from "../link"; 
 
@@ -16,7 +16,7 @@ export default function MainMenu(props: any) {
             <Link icon={FaDolly} to="stocks" />
           </li>
           <li>
-            <Link icon={RiShoppingCart2Fill} to="operations" />
+            <Link icon={HiOutlineShoppingBag} to="operations" />
           </li>
           <li>
             <Link icon={BiSupport} to="chats" />
