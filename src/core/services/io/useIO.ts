@@ -2,24 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { Manager } from "socket.io-client";
 import { Howl } from "howler";
 import { AppContext } from "../../../core/services/context";
-import Storager from "../storager";
+import Storager from "../storager"; 
 
 function useIO() {
   const app = useContext(AppContext);
   const [chat, setChat] = useState<any>();
   const [anal, setAnal] = useState<any>();
-  const playMsg = () => {
-    const msg = new Howl({
-      src: ["/audio/message.mp3", "/audio/message.ogg", "/audio/message.m4r"],
-    });
-    msg.play();
-  };
-  const playSystem = () => {
-    const system = new Howl({
-      src: ["/audio/system.mp3", "/audio/system.ogg", "/audio/system.m4r"],
-    });
-    system.play();
-  };
+
   const onError = (e: any) => console.log(e.message);
   const sendMsgToServer = async (msg: any) => {};
   const onJoin = (payload: any) => {};

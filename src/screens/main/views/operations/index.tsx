@@ -9,15 +9,16 @@ import Calculator from "../../../../core/lib/calculator";
 import Billing from "../../../../core/components/billing/Billing";
 import Map from "../../../../core/components/map";
 import { FaPrint, FaRegTrashAlt } from "react-icons/fa";
+import { AiFillPrinter } from "react-icons/ai";
 import { MdDirectionsBike, MdRemoveShoppingCart } from "react-icons/md";
 
 export default function Operations(props: any) {
-  const { setPreview, preview, operations, loading } = useOperations(props);
+  const { setStatus, operations, loading } = useOperations(props);
 
   return (
     <div className={style.operations}>
       <div className={style.timeline}>
-        <Timeline> 
+        <Timeline>
           {operations?.map((o: any, idx: any) => {
             const { street, apt } = o?.node?.client?.address;
             const { username, phone } = o?.node?.client;
@@ -45,15 +46,24 @@ export default function Operations(props: any) {
                   <Map style={style} address={o?.node?.client?.address} />
                   <div className={style.actions}>
                     <button className={style.action}>
+                      <AiFillPrinter />
+                    </button>
+                    <button
+                      className={style.action}
+                      onClick={() => setStatus(o?.node?.id, "sending")}
+                    >
                       <MdDirectionsBike />
                     </button>
-                    <button className={style.action}>
-                      <FaPrint />
-                    </button>
-                    <button className={style.action}>
+                    <button
+                      className={style.action}
+                      onClick={() => setStatus(o?.node?.id, "canceled")}
+                    >
                       <MdRemoveShoppingCart />
                     </button>
-                    <button className={style.action}>
+                    <button
+                      className={style.action}
+                      onClick={() => setStatus(o?.node?.id, "removed")}
+                    >
                       <FaRegTrashAlt />
                     </button>
                   </div>

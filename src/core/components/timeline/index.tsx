@@ -46,7 +46,7 @@ export function TimelineItem({
 
 export default function Timeline({ children, status }: any) {
   return (
-    <div className={`timeline ${status}`}>
+    <div className={`timeline`}>
       <div className={"items"}>{children}</div>
     </div>
   );

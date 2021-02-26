@@ -1,12 +1,21 @@
 .stocks {
-  box-sizing: border-box; 
+  box-sizing: border-box;
   overflow: hidden;
+  width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  .preview {
+    width: 350;
+  }
 
   .content {
+    flex: 1;
     height: 100%;
     padding: 20px;
-    overflow: hidden; 
+    overflow: hidden;
   }
 
   .items {
@@ -15,7 +24,7 @@
     grid-gap: 10px;
     align-items: stretch;
     justify-content: center;
-    height: 100%; 
-    overflow: auto; 
+    height: 100%;
+    overflow: auto;
   }
 }

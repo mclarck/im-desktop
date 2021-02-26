@@ -6,7 +6,7 @@ export default class ChatMsg {
   dest: any;
   room: any;
 
-  constructor(sender: any, dest: any, msg: any,  room?: string) {
+  constructor(sender: any, dest: any, msg: any, room?: string) {
     this.msg = msg;
     this.sender = sender;
     this.dest = dest;
@@ -20,6 +20,6 @@ export default class ChatMsg {
       room: this.room,
       content: this.msg,
     };
-    return payload;
+    return this.dest || this.room ? payload : null;
   }
 }

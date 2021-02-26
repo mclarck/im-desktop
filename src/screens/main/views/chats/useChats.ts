@@ -3,6 +3,7 @@ import { ChatIO } from "../../../../core/services/io/IOProvider";
 import { AppContext } from "../../../../core/services/context";
 import ChatMsg from "../../../../core/lib/chatMsg";
 import Storager from "../../../../core/services/storager/index";
+import { ipcRenderer } from "electron";
 
 export default function useChats(props: any) {
   const chatIO = useContext(ChatIO);
@@ -12,6 +13,7 @@ export default function useChats(props: any) {
   const [messages, setMessages] = useState([]);
 
   function send(msg: any) {
+    if (!dest) alert("Please choose a recipient!");
     const chatMsg = new ChatMsg(app.token, dest, msg);
     if (chatIO) chatIO.emit("message", chatMsg.buildPayload());
   }
@@ -19,6 +21,7 @@ export default function useChats(props: any) {
   function clear() {
     const store = new Storager(app.company);
     store.setVal("messages", []);
+    onMsg();
   }
 
   function onMsg() {
@@ -26,6 +29,7 @@ export default function useChats(props: any) {
     let msges: any[] = store.getVal("messages");
     msges = mapMsg(msges);
     setMessages(msges);
+    ipcRenderer.send("new-message", {});
   }
 
   function filterConversation(msges: any[]) {
@@ -61,7 +65,7 @@ export default function useChats(props: any) {
   }, [app?.onlines]);
 
   return {
-    send,  
+    send,
     filterConversation,
     clear: clear,
     messages: messages,

@@ -1,23 +1,23 @@
 import _ from "lodash";
-import { useEffect, useState, useContext } from "react"; 
-import { useLazyQuery } from "@apollo/client"; 
+import { useEffect, useState, useContext } from "react";
+import { useLazyQuery } from "@apollo/client";
 import { GET_FULL_STOCKS } from "../../../../core/model/stock/queries";
 import { AppContext } from "../../../../core/services/context";
 import { t } from "../../../../core/locale";
 
 export default function useStocks(props: any) {
-  const company = "kioskito"; 
+  const company = "kioskito";
   const [key, setKey] = useState<string>();
   const [selected, select] = useState<any>();
-  const [form, setForm] = useState<boolean>(false); 
+  const [form, setForm] = useState<boolean>(false);
   const [fetch, { loading, data, error }] = useLazyQuery(GET_FULL_STOCKS, {
     fetchPolicy: "network-only",
-  }); 
+  });
   const stocks = data?.stocks?.edges;
   const app = useContext(AppContext);
 
   useEffect(() => {
-    fetch(); 
+    fetch();
   }, [fetch]);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function useStocks(props: any) {
     select(data);
     showForm();
   };
-  const onSearch = (search: string) => setKey(search); 
+  const onSearch = (search: string) => setKey(search);
 
   function getDesc(stock: any) {
     return `${stock.quantityAv || 0}/${stock.quantity || 0} ${t("from")} ${
@@ -52,6 +52,7 @@ export default function useStocks(props: any) {
     }`;
   }
   if (error) console.log(error.message);
+  if (selected) console.log(selected);
   return {
     app,
     onCreate,
@@ -66,7 +67,7 @@ export default function useStocks(props: any) {
     loading: app.loading,
     key,
     filter,
-    onSearch, 
+    onSearch,
     getDesc,
   };
 }

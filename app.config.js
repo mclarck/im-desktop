@@ -13,7 +13,7 @@ export default {
         }
     },
     rest: {
-        uri: 'http://localhost:8000/api',
+        uri: 'http://localhost:8000',
         headers: {
             Accept: "application/json",
             'IM-COMPANY': 'kioskito'

@@ -6,7 +6,7 @@ import Article from "../../../../core/components/article/Article";
 import Stock from "../stock";
 
 export default function Stocks(props: any) {
-  const { getDesc, app, filter, loading } = useStocks(props);
+  const { selected, select, getDesc, app, filter, loading } = useStocks(props);
   return (
     <div className={style.stocks}>
       <div className={style.content}>
@@ -17,16 +17,16 @@ export default function Stocks(props: any) {
               data={o.node}
               title={o.node?.product?.container}
               descriptions={getDesc(o.node)}
-              onClick={() =>
-                app.setPreview({
-                  name: "sideRight",
-                  component: <Stock stock={o.node} />,
-                })
-              }
+              onClick={() => select(o?.node)}
             />
           ))}
         </div>
       </div>
+      {selected && (
+        <div className={style.preview}>
+          <Stock stock={selected} />
+        </div>
+      )}
       {loading && <Loader />}
     </div>
   );

@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import { GET_FULL_STOCKS } from "../../../../core/model/stock/queries";
 import { AppContext } from "../../../../core/services/context/index";
 import { RestCtx } from "../../../../core/services/rest/RestProvider";
-import { sanitize } from "../../../../core/lib/ultils";
-import { reset } from "i18n-js";
+import { sanitize } from "../../../../core/lib/ultils"; 
 
 export default function useStock(props: any) {
   const app = useContext(AppContext);
@@ -18,7 +17,7 @@ export default function useStock(props: any) {
   });
 
   useEffect(() => {
-    reset()
+    reset();
     setImage(props.stock?.file);
   }, [app.preview]);
 
@@ -28,7 +27,7 @@ export default function useStock(props: any) {
 
   function onUpdate() {
     alert("Stock has been created!");
-    reset()
+    reset();
     fetch();
   }
 
@@ -36,8 +35,8 @@ export default function useStock(props: any) {
     try {
       app.setLoading(true);
       const data = sanitize({ ...brut, file: file?.file });
-      console.log(data,"submit update stock");
-      const response = await rest.mutate("PUT", `/stocks/${props?.stock._id}`, {
+      console.log(data, "submit update stock");
+      const response = await rest.mutate("PUT", props?.stock?.id, {
         entry: { ...data?.entry, provider: data?.provider },
         product: data?.product,
         file: data?.file,
