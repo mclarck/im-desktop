@@ -2,6 +2,7 @@ import React from "react";
 import Marker from "./Marker";
 import useMap from "./useMap";
 import { MapContainer, TileLayer, Polygon } from "react-leaflet";
+import "./style.scss";
 
 export default function Map({
   address,
