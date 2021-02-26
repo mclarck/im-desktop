@@ -13,13 +13,13 @@
     #sideMenu {
       width: 48px;
       height: 100%;
-      overflow: hidden; 
+      overflow: hidden;
     }
     #container {
       flex: 1;
       height: 100%;
       overflow: hidden;
-      #topBar { 
+      #topBar {
         box-sizing: boder-box;
       }
       #content {
@@ -27,12 +27,18 @@
       }
     }
     #sideRight {
-      min-width: 22px; 
+      min-width: 22px;
       box-sizing: boder-box;
     }
   }
   #footer {
-    font-size: 10px; 
+    font-size: 10px;
     box-sizing: boder-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #222;
+    color: #fff;
+    padding: 0 10px;
   }
 }

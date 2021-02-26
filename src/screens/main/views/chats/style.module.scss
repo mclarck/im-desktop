@@ -1,3 +1,56 @@
-.chats{
-    box-sizing:boder-box;
-            }
+@import "../../../../core/resources/scss/vars";
+
+.chats {
+  box-sizing: border-box;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 200px 1fr);
+  overflow: hidden;
+
+  .chat {
+    overflow: hidden;
+  }
+
+  .users {
+    padding: 20px;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .user {
+    width: 100%;
+    margin-bottom: 10px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(1, auto 1fr);
+    align-items: center;
+    overflow: hidden;
+
+    .infos {
+      text-align: left;
+      font-size: 0.6rem;
+      border: none;
+      background: none;
+      outline: none;
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+
+      &:hover {
+        color: darken($light, 40);
+      }
+
+      &:active {
+        outline: none;
+      }
+
+      .username {
+        font-weight: bold;
+        font-size: 0.8rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ import Order from "../../../../core/components/order/Order";
 import Calculator from "../../../../core/lib/calculator";
 import Billing from "../../../../core/components/billing/Billing";
 import Map from "../../../../core/components/map";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaPrint, FaRegTrashAlt } from "react-icons/fa";
 import { MdDirectionsBike, MdRemoveShoppingCart } from "react-icons/md";
 
 export default function Operations(props: any) {
@@ -46,6 +46,9 @@ export default function Operations(props: any) {
                   <div className={style.actions}>
                     <button className={style.action}>
                       <MdDirectionsBike />
+                    </button>
+                    <button className={style.action}>
+                      <FaPrint />
                     </button>
                     <button className={style.action}>
                       <MdRemoveShoppingCart />

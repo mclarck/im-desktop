@@ -9,14 +9,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  overflow: hidden;
 
   &:active {
     outline: none;
   }
 
   img {
-    width: 16px;
-    height: 16px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
   }
 }

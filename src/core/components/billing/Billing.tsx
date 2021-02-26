@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./style.module.scss";
 
-export default function Billing({ bills }) {
+export default function Billing({ bills }:any) {
   return (
     <div className={style.Billing}>
-      {bills?.map((bill, idx) => {
+      {bills?.map((bill:any, idx:any) => {
         return (
           <div
             key={idx}
