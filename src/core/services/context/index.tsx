@@ -2,18 +2,18 @@ import React, { createContext, useState } from "react";
 import { ApolloClient, HttpLink } from "@apollo/client";
 import cache from "../../model/cache";
 import { RestProvider, initRest } from "../rest";
-import { initIO } from "../io";
+import { initIO, SocketIOProvider } from "../io";
 import { GqlProvider } from "../graphql";
 import fetch from "cross-fetch";
 import conf from "../../../../app.config";
 
 const initContext: any = {
+  token: conf.token,
+  company: conf.company,
   loading: false,
   error: {},
   preview: {},
-  setPreview: (preview: any) => {},
-  setLoading: (isLoading: boolean) => {},
-  setError: (error: any) => {},
+  onlines: [], 
   io: initIO(),
   graphql: initGraphqlClient(),
   rest: initRest(),
@@ -35,25 +35,29 @@ export function AppProvider(props: any) {
     setContext({ ...context, loading: isLoading });
   }
 
+  function setOnlines(arg: any) {
+    setContext({ ...context, onlines: arg });
+  } 
+
   function setPreview(arg: { name: string; component: any }) {
     setContext({
       ...context,
-      preview: {
-        ...context.preview,
-        [arg.name]: arg.component,
-      },
+      preview: { ...context.preview, [arg.name]: arg.component },
     });
   }
 
   return (
     <AppContext.Provider
-      value={{ ...context, setLoading: setLoading, setPreview: setPreview }}
+      value={{
+        ...context,
+        setOnlines: setOnlines, 
+        setLoading: setLoading,
+        setPreview: setPreview,
+      }}
     >
       <GqlProvider>
         <RestProvider>
-          {/* <SocketIOProvider> */}
-          {props.children}
-          {/* </SocketIOProvider> */}
+          <SocketIOProvider>{props.children}</SocketIOProvider>
         </RestProvider>
       </GqlProvider>
     </AppContext.Provider>

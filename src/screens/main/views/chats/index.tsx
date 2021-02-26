@@ -6,25 +6,40 @@ import { BiSupport } from "react-icons/bi";
 import Avatar from "../../../../core/components/avatar/Avatar";
 
 export default function Chats(props: any) {
-  const {} = useChats(props);
+  const {
+    send,
+    filterConversation,
+    clear,
+    messages,
+    onlines,
+    dest,
+    setDest,
+    company,
+  } = useChats(props);
   return (
     <div className={style.chats}>
       <div className={style.users}>
-        <div className={style.user}>
-          <Avatar style={style} />
-          <button type="button" className={style.infos} onClick={() => {}}>
-            <div className={style.username}>"onLine.username"</div>
-            <div className={style.phone}>"onLine.phone"</div>
-          </button>
-        </div>
+        {onlines?.map((o: any, idx: number) => (
+          <div key={idx} className={style.user}>
+            <Avatar style={style} onClick={() => setDest(o)} />
+            <button
+              type="button"
+              className={style.infos}
+              onClick={() => setDest(o)}
+            >
+              <div className={style.username}>{o?.username}</div>
+              <div className={style.phone}>{o?.phone}</div>
+            </button>
+          </div>
+        ))}
       </div>
       <div className={style.chat}>
         <ChatBox
           icon={<BiSupport />}
-          title={"dest username"}
-          messages={[]}
-          onClose={() => {}}
-          onSend={(msg: any) => {}}
+          title={dest?.username || company}
+          messages={filterConversation(messages)}
+          onClose={clear}
+          onSend={send}
         />
       </div>
     </div>

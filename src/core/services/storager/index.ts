@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-class Store {
+class Storager {
     private storage;
     private readonly company;
 
@@ -61,4 +61,4 @@ class Store {
     }
 }
 
-export default Store;
+export default Storager;
