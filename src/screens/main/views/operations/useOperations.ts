@@ -50,9 +50,10 @@ export default function useOperations(props: any) {
 
   async function setStatus(id: any, status: string) {
     try {
-      if (confirm(`This operation will be ${status}, it'ok?`)) {
+      if (await confirm(`This operation will be ${status}, it'ok?`)) {
         setLoading(true);
         const response = await rest.mutate("PUT", id, { status });
+        console.log(response.status)
         if (response.ok) {
           onUpdate(await response.json());
         }
@@ -67,13 +68,14 @@ export default function useOperations(props: any) {
   useEffect(() => {
     if (analyticIO) {
       analyticIO.on("message", handleAnalytic);
-    } 
+    }
     return () => {
       cleanAnalytic();
     };
   }, []);
 
   handleError(error);
+  console.log(app, "use operation");
 
   return {
     operations: data?.operations?.edges,
@@ -81,5 +83,6 @@ export default function useOperations(props: any) {
     setPreview,
     setStatus,
     loading: loadingOperation || loading,
+    bounds: app?.setting?.bounds
   };
 }

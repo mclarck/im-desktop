@@ -51,8 +51,8 @@ export default class MenuManager {
             click: async () => {
               this.screenManager.create("SETTINGS", {
                 title: "Settings",
-                width: 720,
-                height: 320,
+                width: 950,
+                height: 580,
               });
             },
           },

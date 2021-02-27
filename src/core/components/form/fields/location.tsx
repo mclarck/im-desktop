@@ -3,6 +3,7 @@ import { MdLocationOn } from "react-icons/md";
 import { t } from "../../../locale";
 import Field from "../field";
 import Map from "../../map";
+import { boolean } from "mathjs";
 
 export default function LocationField({
   style,
@@ -10,16 +11,18 @@ export default function LocationField({
   error,
   defaultValue,
   onBlur,
+  nomap,
 }: {
   style: any;
   register: any;
   error?: any;
+  nomap?: boolean;
   defaultValue?: any;
   onBlur?: () => void;
 }) {
   return (
     <React.Fragment>
-      <Map style={style} address={defaultValue?.address} />
+      {nomap == false && <Map style={style} address={defaultValue?.address} />}
       <div className={style.field}>
         <Field
           label={t("Street")}

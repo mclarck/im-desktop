@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { Manager } from "socket.io-client";
-import { Howl } from "howler";
 import { AppContext } from "../../../core/services/context";
-import Storager from "../storager"; 
+import Storager from "../storager";
+import AppNotification from "../../lib/notification";
+import Audio from "../../lib/audio";
 
 function useIO() {
   const app = useContext(AppContext);
@@ -18,12 +19,27 @@ function useIO() {
     const msges: any[] = store.getVal("messages");
     if (payload?.content && payload?.content !== "") msges.push(payload);
     store.setVal("messages", msges);
+    if (payload?.sender?.phone !== app?.token?.phone) {
+      Audio.newMsg();
+      AppNotification.notify({
+        id: "New Message",
+        options: { title: "New Message", body: "You have a new message" },
+      });
+    }
   };
   const onLastUsers = (payload: any) => {
     const onlines = Object.values(payload?.onlines);
     app.setOnlines(onlines);
   };
-  const onAnalEvent = (payload: any) => {};
+  const onAnalEvent = (payload: any) => {
+    if (payload?.content?.type == "new:order") {
+      Audio.newOrder();
+      AppNotification.notify({
+        id: "New Order",
+        options: { title: "New Order", body: "You have a new Order" },
+      });
+    }
+  };
   const handleChat = (socket: SocketIOClient.Socket) => {
     socket.emit("join", { room: app?.company }); // we need to join a room
     socket.emit("register", { content: app?.token }); // client need to register

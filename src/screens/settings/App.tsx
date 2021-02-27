@@ -1,13 +1,6 @@
 import React, { useEffect } from "react";
+import Settings from "./views/settings";
 
-module.exports = function App() {
-  useEffect(() => {
-    console.log("from react");
-  }, []);
-
-  return (
-    <div id="layout">
-      <div id="content">Main Window</div>
-    </div>
-  );
-};
+export default function App() {
+  return <Settings />;
+}

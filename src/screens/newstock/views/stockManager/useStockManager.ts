@@ -24,7 +24,7 @@ export default function useStockManager(props: any) {
       app.setLoading(true); 
       const data = sanitize({ ...brut, file: file?.file });
       console.log(data,"submit create stock");
-      const response = await rest.mutate("POST", `/stocks`, {
+      const response = await rest.mutate("POST", `/api/stocks`, {
         entry: { ...data?.entry, provider: data?.provider },
         product: data?.product,
         file: data?.file,

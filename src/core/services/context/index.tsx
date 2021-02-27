@@ -1,11 +1,14 @@
 import React, { createContext, useState } from "react";
-import { ApolloClient, HttpLink } from "@apollo/client";
+import { ApolloClient, HttpLink, useQuery } from "@apollo/client";
 import cache from "../../model/cache";
 import { RestProvider, initRest } from "../rest";
 import { initIO, SocketIOProvider } from "../io";
 import { GqlProvider } from "../graphql";
 import fetch from "cross-fetch";
 import conf from "../../../../app.config";
+import { GET_SETTING } from "../../../core/model/setting/queries";
+import { useEffect } from "react";
+import Settings from "../../../screens/settings/views/settings/index";
 
 const initContext: any = {
   token: conf.token,
@@ -13,7 +16,7 @@ const initContext: any = {
   loading: false,
   error: {},
   preview: {},
-  onlines: [], 
+  onlines: [],
   io: initIO(),
   graphql: initGraphqlClient(),
   rest: initRest(),
@@ -30,6 +33,8 @@ export const AppContext = createContext<any>(null);
 
 export function AppProvider(props: any) {
   const [context, setContext] = useState(initContext);
+  const [setting, setSetting] = useState<any>();
+  const apollo = initGraphqlClient();
 
   function setLoading(isLoading: boolean) {
     setContext({ ...context, loading: isLoading });
@@ -37,7 +42,7 @@ export function AppProvider(props: any) {
 
   function setOnlines(arg: any) {
     setContext({ ...context, onlines: arg });
-  } 
+  }
 
   function setPreview(arg: { name: string; component: any }) {
     setContext({
@@ -46,11 +51,23 @@ export function AppProvider(props: any) {
     });
   }
 
+  useEffect(() => {
+    apollo
+      .query({ query: GET_SETTING, variables: { id: "/api/settings/1" } })
+      .then((res: any) => {
+        setSetting(res?.data?.setting);
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
         ...context,
-        setOnlines: setOnlines, 
+        setting: setting,
+        setOnlines: setOnlines,
         setLoading: setLoading,
         setPreview: setPreview,
       }}

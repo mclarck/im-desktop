@@ -3,13 +3,22 @@ import path from "path";
 
 export default class Audio {
   static newMsg() {
-    alert("will play audio")
-    let audioPath = path.join(__dirname, "src", "core", "resources", "audio");
     const sound = new Howl({
       src: [
-        path.join(audioPath, "system.mp3"),
-        path.join(audioPath, "system.m4r"),
-        path.join(audioPath, "system.ogg"),
+        "./audio/message.mp3",
+        "./audio/message.m4r",
+        "./audio/message.ogg",
+      ],
+    });
+    console.log(sound);
+    sound.play();
+  }
+  static newOrder() { 
+    const sound = new Howl({
+      src: [
+        "./audio/system.mp3",
+        "./audio/system.m4r",
+        "./audio/system.ogg",
       ],
     });
     console.log(sound);

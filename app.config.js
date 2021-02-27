@@ -7,20 +7,20 @@ export default {
     },
     company: 'kioskito',
     graphql: {
-        uri: 'http://localhost:8000/api/graphql',
+        uri: 'https://api.inmarketify.ml/api/graphql',
         headers: {
             'IM-COMPANY': 'kioskito'
         }
     },
     rest: {
-        uri: 'http://localhost:8000',
+        uri: 'https://api.inmarketify.ml',
         headers: {
             Accept: "application/json",
             'IM-COMPANY': 'kioskito'
         }
     },
     io: {
-        uri: 'http://localhost:8080',
+        uri: 'https://io.inmarketify.ml',
         options: { transports: ["polling"] }
     }
 }

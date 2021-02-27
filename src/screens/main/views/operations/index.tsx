@@ -13,7 +13,7 @@ import { AiFillPrinter } from "react-icons/ai";
 import { MdDirectionsBike, MdRemoveShoppingCart } from "react-icons/md";
 
 export default function Operations(props: any) {
-  const { setStatus, operations, loading } = useOperations(props);
+  const { bounds, setStatus, operations, loading } = useOperations(props);
 
   return (
     <div className={style.operations}>
@@ -43,7 +43,7 @@ export default function Operations(props: any) {
                       <Billing bills={calc.bills()} />
                     </div>
                   </div>
-                  <Map style={style} address={o?.node?.client?.address} />
+                  <Map style={style} bounds={bounds} address={o?.node?.client?.address} />
                   <div className={style.actions}>
                     <button className={style.action}>
                       <AiFillPrinter />
